@@ -156,12 +156,12 @@ RUN wget ${EAAPI_URL} && \
     mv ealert-api-rulz-master ealert-api-rulz
 # Install app dependencies
 WORKDIR ${EAAPI_DIR}/ealert-api-rulz
-RUN npm install
+RUN npm install 
 # Copy default config, should be override by local config eaapi.config.json
-RUN cp eaapi.config.example.json eaapi.config.json
+#RUN cp .ealertapirc eaapi.config.json
 #Run API
 RUN npm install -g supervisor 
-RUN supervisor index.js 
+#I move it to start-elastalert.sh# RUN supervisor index.js &
 #add bash, Im missing it.
 RUN apk add --update bash && rm -rf /var/cache/apk/*
 

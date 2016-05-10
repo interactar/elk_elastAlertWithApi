@@ -1,6 +1,8 @@
 #!/bin/sh
 
 set -e
+echo "Starting EAAPI..." 
+cd  /src/ealert-api-rulz && supervisor index.js 
 
 # Set the timezone.
 if [ "$SET_CONTAINER_TIMEZONE" = "true" ]; then
@@ -38,3 +40,4 @@ rm -f garbage_file
 
 echo "Starting Elastalert..."
 exec supervisord -c ${ELASTALERT_SUPERVISOR_CONF} -n
+
