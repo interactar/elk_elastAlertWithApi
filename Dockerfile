@@ -162,6 +162,8 @@ RUN cp eaapi.config.example.json eaapi.config.json
 #Run API
 RUN npm install -g supervisor 
 RUN supervisor index.js 
+#add bash, Im missing it.
+RUN apk add --update bash && rm -rf /var/cache/apk/*
 
 EXPOSE 3000
 
